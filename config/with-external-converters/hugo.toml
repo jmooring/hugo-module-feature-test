@@ -1,0 +1,12 @@
+[[cascade]]
+  [cascade.build]
+    list             = 'always'
+    publishResources = true
+    render           = 'always'
+  [cascade.target]
+    path = '/content-formats/{asciidoc,pandoc,restructuredtext}'
+
+[security]
+  allowContent = ['.*']
+  [security.exec]
+    allow = ['^sass$', '^go$', '^git$', '^node$', '^postcss$', '^tailwindcss$', '^asciidoctor$', '^pandoc$', '^rst2html$']

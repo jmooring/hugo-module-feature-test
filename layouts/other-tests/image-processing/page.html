@@ -1,0 +1,33 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+
+<h2>Resize and convert an AVIF image</h2>
+{{ with $r := resources.Get "images/parrot.avif" }}
+	<div class="image-grid">
+		{{ range $format := slice "AVIF" "BMP" "GIF" "JPEG" "PNG" "WebP" }}
+			{{ with $r.Process (printf "resize 240x %s" $format) }}
+				<div class="image-grid-item">
+					<p>{{ printf "%s → %s" $r.MediaType.Type .MediaType.Type }}</p>
+					<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+				</div>
+			{{ end }}
+		{{ end }}
+	</div>
+{{ end }}
+
+<h2>Resize and convert a WebP image</h2>
+{{ with $r := resources.Get "images/tree.webp" }}
+	<div class="image-grid">
+		{{ range $format := slice "AVIF" "BMP" "GIF" "JPEG" "PNG" "WebP" }}
+			{{ with $r.Process (printf "resize 240x %s" $format) }}
+				<div class="image-grid-item">
+					<p>{{ printf "%s → %s" $r.MediaType.Type .MediaType.Type }}</p>
+					<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+				</div>
+			{{ end }}
+		{{ end }}
+	</div>
+{{ end }}
+
+{{ end }}

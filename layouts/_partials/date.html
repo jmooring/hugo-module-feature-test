@@ -1,0 +1,6 @@
+<p>If you see the Last modified date below, it means that Hugo is reading the Git information for this content. If you don't see a date, it means that Hugo is not able to access the Git information, and that's a problem.</p>
+{{ with .GitInfo }}
+	{{ $dateMachine := .AuthorDate | time.Format "2006-01-02T15:04:05-07:00" }}
+	{{ $dateHuman := .AuthorDate | time.Format ":date_long" }}
+	<p>Last modified: <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></p>
+{{ end }}
