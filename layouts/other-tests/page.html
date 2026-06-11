@@ -1,0 +1,6 @@
+{{ define "main" }}
+{{ templates.Current.Filename }}
+<h1>{{ .Title }}</h1>
+{{ partial "date.html" . }}
+{{ .Content }}
+{{ end }}
