@@ -1,0 +1,34 @@
+[[cascade]]
+  [cascade.build]
+    list             = 'never'
+    publishResources = false
+    render           = 'never'
+  [cascade.target]
+    path = '/content-formats/{asciidoc,pandoc,restructuredtext}'
+
+[caches.images]
+  dir = ':cacheDir/images'
+
+[markup.goldmark.extensions]
+  strikethrough = false
+  [markup.goldmark.extensions.extras]
+    [markup.goldmark.extensions.extras.delete]
+      enable = true
+    [markup.goldmark.extensions.extras.insert]
+      enable = true
+    [markup.goldmark.extensions.extras.mark]
+      enable = true
+    [markup.goldmark.extensions.extras.subscript]
+      enable = true
+    [markup.goldmark.extensions.extras.superscript]
+      enable = true
+[markup.goldmark.renderHooks.image]
+  useEmbedded = 'always'
+[markup.goldmark.renderHooks.link]
+  useEmbedded = 'always'
+
+[module.hugoVersion]
+  min = '0.163.0'
+
+[security]
+  allowContent = ['.*']
