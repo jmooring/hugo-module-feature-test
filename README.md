@@ -95,6 +95,8 @@ Or use the shorthand notation:
 hugo -e with-external-converters
 ```
 
+Or set the `HUGO_ENVIRONMENT` environment variable to `with-external-converters`.
+
 ## Installing external converters
 
 To install the external converters on Debian and its derivatives:
