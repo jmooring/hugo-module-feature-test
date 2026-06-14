@@ -7,7 +7,7 @@ This Hugo module provides content, layouts, and configuration to test various Hu
 When you add this module to a project, the build will perform the following tasks. Some require manual inspection of the output to fully verify.
 
 - Import components from a Hugo module.
-- Import a content file named hugö.md to verify that the Git `core.quotepath` setting is `false`.[^1]
+- Import a content file named `hugö.md` to verify that the Git `core.quotepath` setting is `false`.[^1]
 - Extract the Git author date from the imported content.
 - Verify that the embedded link and image render hooks are enabled and functioning properly.
 - Perform vendor prefixing of CSS rules using the `postcss`, `postcss-cli`, and `autoprefixer` Node.js packages.
