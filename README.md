@@ -22,7 +22,7 @@ When you add this module to a project, the build will perform the following task
 - Render Pandoc content.[^3]
 - Render reStructuredText content.[^4]
 
-[^1]: See [issue #9810](https://github.com/gohugoio/hugo/issues/9810). Git's `core.quotepath` setting is `false` if `/tests/hugö` has a non-zero "last modified" date.
+[^1]: See [issue #9810](https://github.com/gohugoio/hugo/issues/9810).
 [^2]: You must install Asciidoctor and its dependencies (Ruby) to render the AsciiDoc content format.
 [^3]: You must install Pandoc to render the Pandoc content format.
 [^4]: You must install Docutils and its dependencies (Python) to render the reStructuredText content format.
