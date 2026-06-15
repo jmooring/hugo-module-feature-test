@@ -11,6 +11,7 @@ When you add this module to a project, the build will perform the following task
 - Extract the Git author date from the imported content.
 - Verify that the embedded link and image render hooks are enabled and functioning properly.
 - Perform vendor prefixing of CSS rules using the `postcss`, `postcss-cli`, and `autoprefixer` Node.js packages.
+- Transpile modern JavaScript syntax to a safe, cross-browser equivalent using the `@babel/core`, `@babel/cli`, and `@babel/preset-env` Node.js packages.[^2]
 - Transpile Sass to CSS using Dart Sass.
 - Process CSS files using the `tailwindcss` and `@tailwindcss/cli` Node.js packages.
 - Decode and resize an AVIF image, then encode to all supported image formats.
@@ -18,14 +19,16 @@ When you add this module to a project, the build will perform the following task
 - Render Markdown content.
 - Render Emacs Org mode content.
 - Render HTML content.
-- Render AsciiDoc content.[^2]
-- Render Pandoc content.[^3]
-- Render reStructuredText content.[^4]
+- Render AsciiDoc content.[^3]
+- Render Pandoc content.[^4]
+- Render reStructuredText content.[^5]
 
 [^1]: See [issue #9810](https://github.com/gohugoio/hugo/issues/9810).
-[^2]: You must install Asciidoctor and its dependencies (Ruby) to render the AsciiDoc content format.
-[^3]: You must install Pandoc to render the Pandoc content format.
-[^4]: You must install Docutils and its dependencies (Python) to render the reStructuredText content format.
+[^2]: For most modern projects, using Hugo's built-in `js.Build` function is preferred over Babel, as it handles bundling and transpilation natively without requiring external Node.js dependencies.
+[^3]: You must install Asciidoctor and its dependencies (Ruby) to render the AsciiDoc content format.
+[^4]: You must install Pandoc to render the Pandoc content format.
+[^5]: You must install Docutils and its dependencies (Python) to render the reStructuredText content format.
+
 
 ## Configuration
 

@@ -9,4 +9,4 @@
 [security]
   allowContent = ['.*']
   [security.exec]
-    allow = ['^sass$', '^go$', '^git$', '^node$', '^postcss$', '^tailwindcss$', '^asciidoctor$', '^pandoc$', '^rst2html$']
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^git$', '^node$', '^postcss$', '^tailwindcss$', '^babel$', '^asciidoctor$', '^pandoc$', '^rst2html$']

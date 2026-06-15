@@ -1,0 +1,20 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+
+{{ $js := `
+function greet(input) {
+  return input ?? "Hello world";
+}
+` }}
+
+<h2>JS</h2>
+{{ highlight (trim $js "\n") "javascript" }}
+
+<h2>JS after Babel</h2>
+{{ with $js | resources.FromString "temp/js" | js.Babel }}
+	{{ highlight (.Content | strings.TrimSpace) "js" }}
+{{ end }}
+
+
+{{ end }}

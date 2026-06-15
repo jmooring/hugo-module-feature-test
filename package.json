@@ -1,5 +1,8 @@
 {
   "devDependencies": {
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
     "@tailwindcss/cli": "^4.3.0",
     "@tailwindcss/typography": "^0.5.20",
     "autoprefixer": "^10.5.0",
