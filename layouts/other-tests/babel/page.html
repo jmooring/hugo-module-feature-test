@@ -4,8 +4,9 @@
 
 {{ $js := `
 function greet(input) {
-  return input ?? "Hello world";
+  console.log(input ?? "Hello, World!");
 }
+greet();
 ` }}
 
 <h2>JS</h2>
