@@ -1,5 +1,6 @@
 .hugo_build.lock
 .hvm
+/NOTES.md
 hugo_stats.json
 node_modules/
 public/
