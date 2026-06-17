@@ -29,7 +29,6 @@ When you add this module to a project, the build will perform the following task
 [^4]: You must install Pandoc to render the Pandoc content format.
 [^5]: You must install Docutils and its dependencies (Python) to render the reStructuredText content format.
 
-
 ## Configuration
 
 ### Initialize the module
@@ -42,9 +41,9 @@ hugo mod init foo
 
 In the above, `foo` is typically something like `github.com/user/project`.
 
-### Configure your site
+### Configure your project
 
-Then add this to your site configuration:
+Then add this to your project configuration:
 
 ```toml
 enableGitInfo = true
@@ -63,6 +62,13 @@ enableGitInfo = true
 
 [[module.imports]]
   path = 'github.com/jmooring/hugo-module-feature-test'
+```
+
+If you wish to run the image benchmark which processes 50 large images, add this to your project configuration:
+
+```toml
+[params]
+imageBenchmark = true
 ```
 
 ### Install Node dependencies

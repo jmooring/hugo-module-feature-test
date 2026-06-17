@@ -19,3 +19,12 @@
 		</footer>
 	</body>
 </html>
+
+{{ if site.IsDefault }}
+	{{ if not (site.Store.Get "imageBenchmarkComplete") }}
+		{{ if site.Params.imageBenchmark }}
+			{{ partial "image-benchmark.html" . }}
+			{{ site.Store.Set "imageBenchmarkComplete" true }}
+		{{ end }}
+	{{ end }}
+{{ end }}
