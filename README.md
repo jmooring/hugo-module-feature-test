@@ -68,7 +68,7 @@ If you wish to run the image benchmark which processes 50 large images, add this
 
 ```toml
 [params]
-imageBenchmark = true
+  imageBenchmark = true
 ```
 
 ### Install Node dependencies
