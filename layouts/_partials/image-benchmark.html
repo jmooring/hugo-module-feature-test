@@ -1,5 +1,0 @@
-{{ range resources.Match "images/image-benchmark/**" }}
-	{{ with .Process "resize 960x avif" }}
-		{{ .Publish }}
-	{{ end }}
-{{ end }}

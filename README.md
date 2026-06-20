@@ -64,13 +64,6 @@ enableGitInfo = true
   path = 'github.com/jmooring/hugo-module-feature-test'
 ```
 
-If you wish to run the image benchmark which processes 50 large images, add this to your project configuration:
-
-```toml
-[params]
-  imageBenchmark = true
-```
-
 ### Install Node dependencies
 
 Now install the Node dependencies:

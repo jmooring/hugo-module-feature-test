@@ -1,0 +1,15 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+
+{{ $start := now.UnixMilli }}
+{{ range resources.Match "images/build-cache-test/**" }}
+	{{ .Process "resize 960x avif" }}
+{{ end }}
+{{ $end := now.UnixMilli }}
+{{ $elapsed := sub $end $start }}
+
+<p>Elapsed time to convert 50 1920x1080 JPEG images to 960x540 AVIF images: {{ $elapsed }} ms.<p>
+
+<p>If the build artifacts are cached, the elapsed time should be less than 2 seconds.</p>
+{{ end }}
