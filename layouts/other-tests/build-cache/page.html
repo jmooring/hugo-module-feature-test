@@ -2,14 +2,27 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 
+{{ $images := resources.Match "images/build-cache-test/**" }}
+
+{{ $outputWidth := 960 }}
+{{ $outputHeight := 540 }}
+{{ $outputFormat := "avif" }}
+
+{{ $inputWidth := (index $images 0).Width }}
+{{ $inputHeight := (index $images 0).Height }}
+{{ $inputFormat := (index $images 0).MediaType.SubType }}
+
+{{ $processingSpec := printf "fill %dx%d %s" $outputWidth $outputHeight $outputFormat }}
+
 {{ $start := now.UnixMilli }}
-{{ range resources.Match "images/build-cache-test/**" }}
-	{{ .Process "resize 960x avif" }}
+{{ range $images }}
+	{{ $noop := .Process $processingSpec }}
 {{ end }}
 {{ $end := now.UnixMilli }}
+
 {{ $elapsed := sub $end $start }}
 
-<p>Elapsed time to convert 50 1920x1080 JPEG images to 960x540 AVIF images: {{ $elapsed }} ms.<p>
+<p>{{ printf "Converted %d %s images (%dx%d) to %s (%dx%d) in %d ms." ($images | len) ($inputFormat | upper) $inputWidth $inputHeight ($outputFormat | upper) $outputWidth $outputHeight $elapsed }}</p>
 
-<p>If the build artifacts are cached, the elapsed time should be less than 2 seconds.</p>
+<p>Initial builds take longer; subsequent cached builds should be under 2 seconds.</p>
 {{ end }}
