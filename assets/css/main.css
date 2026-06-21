@@ -54,8 +54,8 @@ footer {
   flex-wrap: wrap;
   gap: 16px;
   justify-content: flex-start;
-  max-width: 768px; /* Matches your site's base layout limit */
-  margin: 0 auto;   /* Centers the grid if your main container isn't already */
+  max-width: 768px;
+  margin: 0 auto;
 }
 
 .image-grid-item {
