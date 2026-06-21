@@ -85,6 +85,7 @@ Complete the steps below to add this module to your project.
   ```text
   .gitmodules
   packages/**
+  themes/**
   package.json
   package-lock.json
   ```
