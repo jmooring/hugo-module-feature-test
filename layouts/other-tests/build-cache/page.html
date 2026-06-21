@@ -23,6 +23,4 @@
 {{ $elapsed := sub $end $start }}
 
 <p>{{ printf "Converted %d %s images (%dx%d) to %s (%dx%d) in %d ms." ($images | len) ($inputFormat | upper) $inputWidth $inputHeight ($outputFormat | upper) $outputWidth $outputHeight $elapsed }}</p>
-
-<p>Uncached conversion takes several seconds; subsequent cached processing should be under 1 second.</p>
 {{ end }}
