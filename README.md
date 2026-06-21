@@ -7,6 +7,7 @@ This Hugo module provides content, layouts, and configuration to test various Hu
 When you add this module to a project, the build will perform the following tasks. Some require manual inspection of the output to fully verify.
 
 - Import components from a Hugo module.
+- Import a theme as a Git submodule and render a shortcode from it.
 - Import a content file named `hugö.md` to verify that the Git `core.quotepath` setting is `false`.[^1]
 - Extract the Git author date from the imported content.
 - Verify that the embedded link and image render hooks are enabled and functioning properly.
@@ -16,6 +17,7 @@ When you add this module to a project, the build will perform the following task
 - Process CSS files using the `tailwindcss` and `@tailwindcss/cli` Node.js packages.
 - Decode and resize an AVIF image, then encode to all supported image formats.
 - Decode and resize a WebP image, then encode to all supported image formats.
+- Test Hugo's build cache for image processing.
 - Render Markdown content.
 - Render Emacs Org mode content.
 - Render HTML content.
@@ -31,57 +33,61 @@ When you add this module to a project, the build will perform the following task
 
 ## Configuration
 
-### Initialize the module
+Complete the steps below to add this module to your project.
 
-To add this module to your project, initialize your project as a Hugo module:
+1. Initialize your project as a Hugo module:
 
-```sh
-hugo mod init foo
-```
+  ```sh
+  hugo mod init foo
+  ```
 
-In the above, `foo` is typically something like `github.com/user/project`.
+  In the above, `foo` is typically something like `github.com/user/project`.
 
-### Configure your project
+1. Add the [`github.com/jmooring/hugo-theme-example`] repository as a Git submodule:
 
-Then add this to your project configuration:
+  ```sh
+  git submodule add https://github.com/jmooring/hugo-theme-example themes/hugo-theme-example
+  ```
 
-```toml
-enableGitInfo = true
+1. Add this to your project configuration:
 
-[caches]
-  _merge = 'deep'
-  
-[cascade]
-  _merge = 'deep'
+  ```toml
+  enableGitInfo = true
 
-[markup]
-  _merge = 'deep'
+  [caches]
+    _merge = 'deep'
+    
+  [cascade]
+    _merge = 'deep'
 
-[security]
-  _merge = 'deep'
+  [markup]
+    _merge = 'deep'
 
-[[module.imports]]
-  path = 'github.com/jmooring/hugo-module-feature-test'
-```
+  [security]
+    _merge = 'deep'
 
-### Install Node dependencies
+  [[module.imports]]
+    path = 'github.com/jmooring/hugo-module-feature-test'
 
-Now install the Node dependencies:
+  [[module.imports]]
+    path = 'hugo-theme-example'
+  ```
 
-```sh
-hugo mod npm pack
-npm i
-```
+1. Install the Node.js dependencies:
 
-### Version control
+  ```sh
+  hugo mod npm pack
+  npm i
+  ```
 
-Make sure to check these files into source control:
+1. Check these files into source control:
 
-```text
-packages/**
-package.json
-package-lock.json
-```
+  ```text
+  .gitmodules
+  packages/**
+  package.json
+  package-lock.json
+  ```
 
 ## Usage
 
@@ -109,3 +115,5 @@ sudo apt install -y asciidoctor
 sudo apt install -y pandoc
 sudo apt install -y python3-docutils
 ```
+
+[`github.com/jmooring/hugo-theme-example`]: https://github.com/jmooring/hugo-theme-example
