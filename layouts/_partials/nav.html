@@ -1,0 +1,16 @@
+{{ if .IsPage }}
+	{{ $pages := .CurrentSection.Pages.ByLinkTitle.Reverse }}
+	<nav>
+		{{ with $pages.Prev . }}
+			<a href="{{ .RelPermalink }}">Previous</a>
+		{{ else }}
+			<a href="{{ site.Home.RelPermalink }}">Home</a>
+		{{ end }}
+
+		{{ with $pages.Next . }}
+			<a href="{{ .RelPermalink }}">Next</a>
+		{{ else }}
+			<a href="{{ site.Home.RelPermalink }}">Home</a>
+		{{ end }}
+	</nav>
+{{ end }}

@@ -75,6 +75,11 @@ footer {
 /* Navigation */
 /* ------------------------------------------------------------------------- */
 
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
 .nav-inline ol,
 .nav-inline ul {
   margin: 1rem 0;
