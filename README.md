@@ -37,58 +37,58 @@ Complete the steps below to add this module to your project.
 
 1. Initialize your project as a Hugo module:
 
-  ```sh
-  hugo mod init foo
-  ```
+    ```sh
+    hugo mod init foo
+    ```
 
-  In the above, `foo` is typically something like `github.com/user/project`.
+    In the above, `foo` is typically something like `github.com/user/project`.
 
 1. Add the [`github.com/jmooring/hugo-theme-example`] repository as a Git submodule:
-
-  ```sh
-  git submodule add https://github.com/jmooring/hugo-theme-example themes/hugo-theme-example
-  ```
+  
+    ```sh
+    git submodule add https://github.com/jmooring/hugo-theme-example themes/hugo-theme-example
+    ```
 
 1. Add this to your project configuration:
 
-  ```toml
-  enableGitInfo = true
-
-  [caches]
-    _merge = 'deep'
-    
-  [cascade]
-    _merge = 'deep'
-
-  [markup]
-    _merge = 'deep'
-
-  [security]
-    _merge = 'deep'
-
-  [[module.imports]]
-    path = 'github.com/jmooring/hugo-module-feature-test'
-
-  [[module.imports]]
-    path = 'hugo-theme-example'
-  ```
+    ```toml
+    enableGitInfo = true
+  
+    [caches]
+      _merge = 'deep'
+      
+    [cascade]
+      _merge = 'deep'
+  
+    [markup]
+      _merge = 'deep'
+  
+    [security]
+      _merge = 'deep'
+  
+    [[module.imports]]
+      path = 'github.com/jmooring/hugo-module-feature-test'
+  
+    [[module.imports]]
+      path = 'hugo-theme-example'
+    ```
 
 1. Install the Node.js dependencies:
 
-  ```sh
-  hugo mod npm pack
-  npm i
-  ```
+    ```sh
+    hugo mod npm pack
+    npm i
+    ```
 
 1. Check these files into source control:
 
-  ```text
-  .gitmodules
-  packages/**
-  themes/**
-  package.json
-  package-lock.json
-  ```
+    ```text
+    .gitmodules
+    packages/**
+    themes/**
+    package.json
+    package-lock.json
+    ```
 
 ## Usage
 
